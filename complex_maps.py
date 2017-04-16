@@ -146,6 +146,9 @@ print('Done!') # Notify user that code ran successfully
 
 # pyplot.figure(figsize=(16, 16), dpi=100)
 # pyplot.scatter(*zip(*gen_square(square)))
+# pyplot.xlabel('reals')
+# pyplot.ylabel('imags')
+# pyplot.title('my title')
 # pyplot.savefig('square.png')
 # pyplot.close()
 
@@ -156,6 +159,9 @@ print('Done!') # Notify user that code ran successfully
 
 # pyplot.figure(figsize=(16, 16), dpi=100)
 # pyplot.scatter(*zip(*list(map(t, gen_square(square)))))
+# pyplot.xlabel('reals')
+# pyplot.ylabel('imags')
+# pyplot.title('my title')
 # pyplot.savefig('square2.png')
 # pyplot.close()
 
@@ -166,6 +172,9 @@ print('Done!') # Notify user that code ran successfully
 
 # pyplot.figure(figsize=(16, 16), dpi=100)
 # pyplot.scatter(*zip(*list(map(m, gen_square(square)))))
+# pyplot.xlabel('reals')
+# pyplot.ylabel('imags')
+# pyplot.title('my title')
 # pyplot.savefig('square3.png')
 # pyplot.close()
 
@@ -179,9 +188,6 @@ print('Done!') # Notify user that code ran successfully
 #     """Translation."""
 #     return cnum + complex(0, 3)
 
-
-# real = [0, 1, 0, 1]
-# imag = [0, 0, complex(0, 1), complex(0, 1)]
 # mset = []
 # for i in range(10):
 #     mset.append(complex(i, i))
