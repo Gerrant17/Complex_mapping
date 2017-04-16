@@ -4,7 +4,7 @@ from matplotlib import pyplot
 # matplotlib.org
 
 csquare = [(0 + 0j), (0 + 5j), (5 + 0j), (5 + 5j)]
-# Shape of a N for point order in list
+# Order points in list to the shape of a N
 
 
 def chorizontal(left, right):
@@ -33,8 +33,7 @@ def cgen_square(square):
     plotted.extend(cvertical(square[2], square[3]))
     return list(set(plotted))
 
-print(cgen_square(csquare))
-
+# Graphing the unaltered 5x5 square
 pyplot.figure(figsize=(16, 16), dpi=100)
 cset = cgen_square(csquare)
 cu = list(map(lambda z: z.real, cset))
@@ -46,11 +45,14 @@ pyplot.title('Basic 5x5 Square')
 pyplot.savefig('../csquare.png')
 pyplot.close()
 
+# Function to translate points by (2 + 2i)
+
 
 def translate(num):
     """Translate point + (2 + 2j)."""
     return num + (2 + 2j)
 
+# Graphing the translated square
 pyplot.figure(figsize=(16, 16), dpi=100)
 newcset = list(map(translate, cset))
 newcu = list(map(lambda z: z.real, newcset))
@@ -62,11 +64,14 @@ pyplot.title('Translated + (2 + 2j)')
 pyplot.savefig('../csquare_trans.png')
 pyplot.close()
 
+# Function to magnify points by 2
+
 
 def magnify(num):
     """Magnify point by 2."""
     return num * 2
 
+# Graphing the magnified square
 pyplot.figure(figsize=(16, 16), dpi=100)
 magcset = list(map(magnify, cset))
 magcu = list(map(lambda z: z.real, magcset))
@@ -78,11 +83,14 @@ pyplot.title('Magnified by 2')
 pyplot.savefig('../csquare_mag.png')
 pyplot.close()
 
+# Funtion to rotate points by e^i(pi/4)
+
 
 def rotate(num):
-    """Rotate by 45 degrees."""
+    """Rotate point by 45 degrees."""
     return num * complex(((2 ** .5) / 2), ((2 ** .5) / 2))
 
+# Graphing the rotated square
 pyplot.figure(figsize=(16, 16), dpi=100)
 rotcset = list(map(rotate, cset))
 rotcu = list(map(lambda z: z.real, rotcset))
@@ -94,6 +102,7 @@ pyplot.title('Rotated 45 degrees')
 pyplot.savefig('../csquare_rot.png')
 pyplot.close()
 
+# Graphing the 5x5 square that has been translated, magnified, and rotated
 
 pyplot.figure(figsize=(16, 16), dpi=100)
 magtranset = list(map(magnify, newcset))
@@ -107,6 +116,9 @@ pyplot.title('5x5 Square, Trans + (2 + 2j), Mag by 2, Rotated 45 degrees')
 pyplot.savefig('../csquare_tmr.png')
 pyplot.close()
 
+print('Done!') # Notify user that code ran successfully
+
+# Following code was used for testing pyplot in real numbers before altering to complex numbers above 
 # square = [(0, 0), (0, 5), (5, 0), (5, 5)]
 
 
