@@ -60,7 +60,7 @@ newcv = list(map(lambda z: z.imag, newcset))
 pyplot.scatter(newcu, newcv)
 pyplot.xlabel('reals')
 pyplot.ylabel('imags')
-pyplot.title('Translated + (2 + 2j)')
+pyplot.title('5x5 square under f(z) = z + (2 + 2j)')
 pyplot.savefig('../csquare_trans.png')
 pyplot.close()
 
@@ -79,7 +79,7 @@ magcv = list(map(lambda z: z.imag, magcset))
 pyplot.scatter(magcu, magcv)
 pyplot.xlabel('reals')
 pyplot.ylabel('imags')
-pyplot.title('Magnified by 2')
+pyplot.title('5x5 square under f(z) = 2z')
 pyplot.savefig('../csquare_mag.png')
 pyplot.close()
 
@@ -98,27 +98,35 @@ rotcv = list(map(lambda z: z.imag, rotcset))
 pyplot.scatter(rotcu, rotcv)
 pyplot.xlabel('reals')
 pyplot.ylabel('imags')
-pyplot.title('Rotated 45 degrees')
+pyplot.title('5x5 square under f(z) = ((2 ** .5) / 2 + j((2 ** .5) / 2))z')
 pyplot.savefig('../csquare_rot.png')
 pyplot.close()
+
+# Function to map f(z) = az +b
+
+
+def clm(num):
+    """Complex Linear mapping of num."""
+    return complex((2 ** .5), (2 ** .5)) * num + (2 + 2j)
 
 # Graphing the 5x5 square that has been translated, magnified, and rotated
 
 pyplot.figure(figsize=(16, 16), dpi=100)
-magtranset = list(map(magnify, newcset))
-comset = list(map(rotate, magtranset))
-comu = list(map(lambda z: z.real, comset))
-comv = list(map(lambda z: z.imag, comset))
-pyplot.scatter(comu, comv)
+clmset = list(map(clm, cset))
+clmu = list(map(lambda z: z.real, clmset))
+clmv = list(map(lambda z: z.imag, clmset))
+pyplot.scatter(clmu, clmv)
 pyplot.xlabel('reals')
 pyplot.ylabel('imags')
-pyplot.title('5x5 Square, Trans + (2 + 2j), Mag by 2, Rotated 45 degrees')
-pyplot.savefig('../csquare_tmr.png')
+pyplot.title(
+    '5x5 Square under f(z) = ((2 ** .5)+ j(2 ** .5))z + (2 + 2j)')
+pyplot.savefig('../csquare_clm.png')
 pyplot.close()
 
-print('Done!') # Notify user that code ran successfully
+print('Done!')  # Notify user that code ran successfully
 
-# Following code was used for testing pyplot in real numbers before altering to complex numbers above 
+# Following code was used for testing pyplot in real numbers before altering to
+# complex numbers above
 # square = [(0, 0), (0, 5), (5, 0), (5, 5)]
 
 
